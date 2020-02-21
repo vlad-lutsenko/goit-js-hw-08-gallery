@@ -36,13 +36,13 @@ const lightboxImage = document.querySelector(".lightbox__image");
 
 const openImg = function(event) {
   event.preventDefault();
-  if (event.target === event.currentTarget) {
-    return;
-  }
-  const newUrl = event.target.dataset.source;
+  if (event.target !== event.currentTarget) {
+    const newUrl = event.target.dataset.source;
 
-  lightboxImage.src = newUrl;
-  lightbox.classList.add("is-open");
+    lightboxImage.src = newUrl;
+    lightbox.classList.add("is-open");
+  }
+  return;
 };
 
 galleryList.addEventListener("click", openImg);
